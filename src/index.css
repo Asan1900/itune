@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Modern Clean Theme - Deep Slate & Violet */
+    --background: 222 47% 11%;
+    /* Slate 950 */
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 267 84% 81%;
+    /* Soft Violet */
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 17%;
+    /* Slate 900 */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 267 84% 81%;
+
+    --radius: 0.75rem;
+
+    /* Tuner Colors - Soft & Modern */
+    --tuner-accurate: 142 70% 50%;
+    /* Soft Green */
+    --tuner-close: 45 90% 60%;
+    /* Soft Yellow */
+    --tuner-off: 0 70% 60%;
+    /* Soft Red */
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    /* ... same as root for now, enforcing dark mode */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    @apply bg-background/60 backdrop-blur-xl border border-white/10 shadow-xl;
+  }
+
+  .glass-effect-strong {
+    @apply bg-background/80 backdrop-blur-2xl border border-white/10 shadow-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60;
+  }
+
+  /* Tuner Utilities */
+  .text-tuner-accurate {
+    color: hsl(var(--tuner-accurate));
+  }
+
+  .text-tuner-close {
+    color: hsl(var(--tuner-close));
+  }
+
+  .text-tuner-off {
+    color: hsl(var(--tuner-off));
+  }
+
+  .bg-tuner-accurate {
+    background-color: hsl(var(--tuner-accurate));
+  }
+
+  .bg-tuner-close {
+    background-color: hsl(var(--tuner-close));
+  }
+
+  .bg-tuner-off {
+    background-color: hsl(var(--tuner-off));
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* Smooth Button Hover */
+  .btn-hover-effect {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-hover-effect:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-hover-effect:active {
+    transform: translateY(0);
+  }
+}
